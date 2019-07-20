@@ -11,6 +11,6 @@ Must have Node JS installed in your machine.
 
 How to install?
 1. Clone this repo
-2. Open the terminal then go to the directory of the cloned repo
+2. Open your terminal then go to the directory of the cloned repo
 3. Install the packages by entering the command `npm i` or `npm install`
 4. Run the app by entering the command `node index` or `node index.js`
