@@ -14,3 +14,4 @@ How to install?
 2. Open your terminal then go to the directory of the cloned repo
 3. Install the packages by entering the command `npm i` or `npm install`
 4. Run the app by entering the command `node index` or `node index.js`
+5. Give it a try by entering your favorite manga!
