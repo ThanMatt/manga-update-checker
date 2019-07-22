@@ -15,3 +15,7 @@ How to install?
 3. Install the packages by entering the command `npm i` or `npm install`
 4. Run the app by entering the command `node index` or `node index.js`
 5. Enter your favorite manga
+
+**Demo:**
+
+![mauch](https://github.com/ThanMatt/manga-update-checker/blob/master/mauch%5B1%5D.png)
