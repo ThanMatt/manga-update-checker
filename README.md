@@ -20,11 +20,11 @@ How to install?
 
 **Demo:**
 
-<center><i>Creates a file if searched for the first time<i></center>
+Creates a file if searched for the first time
 
 ![mauch new file](mauch1.png)
 
-<center><i>Checks if there's a new chapter<i></center>
+Checks if there's a new chapter
 
 ![mauch check manga](mauch2.png)
 ![mauch new manga chapter](mauch3.png)
