@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const readline = require('readline');
 const chalk = require('chalk');
 const Spinner = require('cli-spinner').Spinner;
+const fs = require('fs');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -53,13 +54,54 @@ request(`${url}/alphabetical`)
             date = $(el).text();
           })
 
-          //!! Output
-          console.log(`
-          Selected manga: ${chalk.cyan(title)}
-          ${title} chapters loaded: ${chalk.cyan(counter)}
-          Latest chapter date: ${chalk.cyan(date)}
-          Latest chapter URL: ${chalk.cyan(latestChapterURL)}
-          `)
+          const data = `${counter}\n${date}`;
+
+          //!! Read/Write .txt files
+          fs.readFile(`${serializeTitle}.txt`, 'utf-8', (err, txt) => {
+            if (err) {
+
+              console.log(`${serializeTitle}.txt created successfully`);
+              counter = chalk.green(counter);
+              date = chalk.green(date);
+              latestChapterURL = chalk.green(latestChapterURL);
+
+              //!! Create file if error
+              fs.writeFile(`${serializeTitle}.txt`, data, (err) => {
+                if (err) {
+                  console.log(err);
+                }
+              })
+
+            } else {
+
+              //!! Comparing scraped data to text file data
+              if (data === txt) {
+                fs.stat(`${serializeTitle}.txt`, (err, stats) => {
+                  console.log(`No new chapter. Last modified file: ${stats.mtime}`);
+                })
+
+              } else {
+                console.log(`${chalk.yellow.bold('NEW manga chapter')}`);
+                counter = chalk.yellow.bold(counter);
+                date = chalk.yellow.bold(date);
+                latestChapterURL = chalk.yellow.bold(latestChapterURL);
+                
+                fs.writeFile(`${serializeTitle}.txt`, data, (err) => {
+                  if (err) {
+                    console.log(err);
+                  }
+                })
+
+              }
+            }
+
+            //!! Output
+            console.log(`
+            Chapters: ${counter}
+            Latest chapter date: ${date}
+            Latest chapter URL: ${latestChapterURL}
+            `)
+          })
 
         }).catch(err => {
           if (err.statusCode === 404) {
