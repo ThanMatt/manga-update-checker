@@ -46,7 +46,7 @@ request(`${url}/alphabetical`)
           const $ = cheerio.load(html);
           const anchor = $('#listing tr:last-child a').attr('href');
 
-          latestChapterURL = url + anchor; //!! concats the base url and the manga url
+          latestChapterURL = url + anchor; //!! concats the base url with the latest manga chapter url
 
           $('#listing tr td:last-child').each((i, el) => { //!! Counts how many chapters and retrieves the latest date
             counter++;

@@ -5,7 +5,7 @@ Manga Update Checker or Mauch might solve this.
 
 Mauch is a NodeJS app that shows you the latest chapter and date of your favorite manga without opening your web browser.
 
-Just simply type in the manga you want to check and it will show you information that you need.
+Just simply type in the manga you want to check and it will show you the information you need.
 
 Must have Node JS installed in your machine.
 
@@ -14,3 +14,8 @@ How to install?
 2. Open your terminal then go to the directory of the cloned repo
 3. Install the packages by entering the command `npm i` or `npm install`
 4. Run the app by entering the command `node index` or `node index.js`
+5. Enter your favorite manga
+
+**Demo:**
+
+![mauch](https://github.com/ThanMatt/manga-update-checker/blob/master/mauch%5B1%5D.png)
