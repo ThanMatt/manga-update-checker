@@ -37,7 +37,7 @@ request(`${url}/alphabetical`)
     //!! User prompt
     rl.question("What manga: ", title => {
 
-      serializeTitle = title.replace(/\s+/g, '-').toLowerCase(); //!! serializes the title into a url-readable format
+      serializeTitle = _.kebabCase(_.toLower(title)); //!! serializes the title into a url-readable format
 
       request(`${url}/${serializeTitle}`)
         .then(html => {
